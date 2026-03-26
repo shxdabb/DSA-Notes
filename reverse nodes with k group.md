@@ -1,22 +1,26 @@
+# README
 
-# Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
+```python
+Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+         self.val = val
+self.next = next
+
 class Solution(object):
     # make a helper function
     def getkth(self,curr,k): #start from dummy/GroupPrev
-        while curr and k>0:
+        while curr and k&gt;0:
             curr = curr.next
             k-=1
         return curr #this will give return the kth node
+
     def reverseKGroup(self, head, k):
-        """
+    
         :type head: Optional[ListNode]
         :type k: int
         :rtype: Optional[ListNode]
-        """
+        
         dummy = ListNode(0,head)
 
         GroupPrev = dummy
@@ -39,9 +43,3 @@ class Solution(object):
             # GroupPrev = kth.next
             GroupPrev = curr
         return GroupPrev
-
-
-
-    
-    
-        
