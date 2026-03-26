@@ -10,7 +10,7 @@ self.next = next
 class Solution(object):
     # make a helper function
     def getkth(self,curr,k): #start from dummy/GroupPrev
-        while curr and k&gt;0:
+        while curr and k>0:
             curr = curr.next
             k-=1
         return curr #this will give return the kth node
