@@ -9,7 +9,7 @@ app2 --> watched solution and code both, didnt liked this problem anyway still h
 app2: {take two list from array lists and merge them using a helper function
 
 
-
+'''python
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
