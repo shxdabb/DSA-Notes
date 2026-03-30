@@ -2,12 +2,11 @@
 
 
 ```python
-Definition for singly-linked list.
-class ListNode(object):
-    def __init__(self, val=0, next=None):
-         self.val = val
-self.next = next
-
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution(object):
     # make a helper function
     def getkth(self,curr,k): #start from dummy/GroupPrev
@@ -15,32 +14,42 @@ class Solution(object):
             curr = curr.next
             k-=1
         return curr #this will give return the kth node
-
     def reverseKGroup(self, head, k):
-    
+        """
         :type head: Optional[ListNode]
         :type k: int
         :rtype: Optional[ListNode]
-        
+        """
         dummy = ListNode(0,head)
 
         GroupPrev = dummy
 
         while True:
-            kth = getkth(GroupPrev,k)
+            kth = self.getkth(GroupPrev,k)
             if not kth:
-                return GroupPrev
+                break
             GroupNext = kth.next
 
             #start reversing 
             curr = GroupPrev.next
-            prev = GroupNext
+            prev = kth.next
             while curr!= GroupNext:
                 temp = curr.next
                 curr.next = prev
-                # prev = curr
-                temp.next = curr
+                prev = curr
+                # temp.next = curr
                 curr = temp
+            tmp1 = GroupPrev.next 
+            #the groupprev.next is pointing at that node which which was the starting node before rever
+            #sal and the node before next group after reversal in first case it is 1
+            #so basically dummy.next on which GroupPrev was there before will be pointing 
+            #at the new head of list 
+
+            GroupPrev.next = kth
+            GroupPrev = tmp1
             # GroupPrev = kth.next
-            GroupPrev = curr
-        return GroupPrev
+            # GroupPrev = curr
+
+        return dummy.next
+
+
