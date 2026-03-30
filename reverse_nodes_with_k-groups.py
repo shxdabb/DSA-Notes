@@ -3,61 +3,48 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
-import heapq
 class Solution(object):
-    def mergeKLists(self, lists):
-        
-        :type lists: List[Optional[ListNode]]
+    # make a helper function
+    def getkth(self,curr,k): #start from dummy/GroupPrev
+        while curr and k>0:
+            curr = curr.next
+            k-=1
+        return curr #this will give return the kth node
+    def reverseKGroup(self, head, k):
+        """
+        :type head: Optional[ListNode]
+        :type k: int
         :rtype: Optional[ListNode]
-        
-        #basically iterate through lists so u will be at [1,4,5] then [1,3,4]
-        #take two list at a time and merge them 
-        if not lists and len(lists)==0:
-            return None
-          
-        
-        while len(lists)&gt;1: #iterate over lists
-            mergedlists = []
-            for i in range(0,len(lists),2): #we will merge them in pairs
-                l1 = lists[i]
-                l2 = lists[i+1] if i+1 &lt; len(lists) else None #cuz l2 cant be there sometime 
-                                                        #single shit
+        """
+        dummy = ListNode(0,head)
 
-                mergedlists.append(self.mergelist(l1,l2))
-            lists = mergedlists #doubt
-        
+        GroupPrev = dummy
 
-        return lists[0]
+        while True:
+            kth = self.getkth(GroupPrev,k)
+            if not kth:
+                break
+            GroupNext = kth.next
 
-            
-    def mergelist(self,l1,l2):
-        dummy = ListNode()
-        curr = dummy
-        p1,p2 = l1,l2
-        while p1 and p2: # doubt wtf is l1 and l2 here the array of head 
+            #start reversing 
+            curr = GroupPrev.next
+            prev = kth.next
+            while curr!= GroupNext:
+                temp = curr.next
+                curr.next = prev
+                prev = curr
+                # temp.next = curr
+                curr = temp
+            tmp1 = GroupPrev.next 
+            #the groupprev.next is pointing at that node which which was the starting node before rever
+            #sal and the node before next group after reversal in first case it is 1
+            #so basically dummy.next on which GroupPrev was there before will be pointing 
+            #at the new head of list 
 
-            if p1.val &lt;= p2.val:
-                curr.next = p1    #[[1,4,5,6],[1,3,4]
-                p1 = p1.next
-                curr = curr.next  #d-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5
-            elif p1.val &gt; p2.val:
-                curr.next = p2
-                p2 = p2.next
-                curr = curr.next
+            GroupPrev.next = kth
+            GroupPrev = tmp1
+            # GroupPrev = kth.next
+            # GroupPrev = curr
 
-        if p1:
-            curr.next = p1
-                
-        if p2:
-            curr.next = p2
         return dummy.next
 
-
-        my older approach
-        # dummy = ListNode()
-        # curr = dummy
-        # heap = []
-
-        # for heads in lists:
-        #     #need a while loop to access all k elements
-        #     heapq.heappush(heap,list[list[heads]])
