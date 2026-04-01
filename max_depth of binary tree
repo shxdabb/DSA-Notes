@@ -4,4 +4,7 @@
 
         
         #this shit ass approach aint working 
-    
+
+
+i am thinking of using bfs this time --- from that we can keep track of level by level and level is depth
+in this dfs approach when two nodea appear at same level depth is getting increased by +1 
