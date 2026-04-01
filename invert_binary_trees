@@ -1,0 +1,11 @@
+
+
+```python
+        if Node is None:
+          return
+        self.swap(Node.left)
+        self.swap(Node.right)
+        return root
+
+    def swap(self,Node):
+        Node.left,Node.right = Node.right,Node.left
