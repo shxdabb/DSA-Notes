@@ -19,7 +19,7 @@ class Solution(object):
         self.invertTree(Node.right) #or u can write after this but not inorder, only preorder and post order
 
         
-
+#old code
 
 ```python
         if Node is None:
