@@ -2,7 +2,7 @@
 the function which was doing the swapping is getting called so avoid this in future
 
 #learning : the function which does the actual task shouldne be called again recursively, the main function must be called
-recursively
+recursively, to swap every node, every node must act as a root for its own subtree
 
 
 #actual code (learnt after solution plus code):
