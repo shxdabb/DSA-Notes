@@ -1,3 +1,24 @@
+#My older approach : using DFS typa thing was correct but u need to keep recursion plus main thing separate 
+the function which was doing the swapping is getting called so avoid this in future
+
+#learning : the function which does the actual task shouldne be called again recursively, the main function must be called
+recursively
+
+
+#actual code (learnt after solution plus code):
+```python
+class Solution(object):
+    def invertTree(self, root):
+        
+        Node = root
+        if Node is None:
+            return
+
+        Node.left,Node.right = Node.right,Node.left
+        self.invertTree(Node.left)
+        self.invertTree(Node.right) #or u can write after this but not inorder, only preorder and post order
+
+        
 
 
 ```python
