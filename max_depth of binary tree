@@ -12,3 +12,31 @@ in this dfs approach when two nodea appear at same level depth is getting increa
 
 
 #after solution --> this can be solved by dfs recursive and iterative and bfs 3 ways to solve it...
+
+
+```python
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: int
+        """
+        #basic idea is use dfs whenever Node.left is called increase depth by 1 until none
+        #this shit ass approach aint working 
+        #watched solution --> he used dfs and a basic formula
+    
+        Node = root
+        if not Node:
+            return 0
+
+        return 1 + max(self.maxDepth(Node.left),self.maxDepth(Node.right))
+
+
+        
