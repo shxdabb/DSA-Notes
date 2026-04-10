@@ -3,3 +3,4 @@
 2) new idea : use bfs on both side and increase counter level by level
 
 3) after hints and solutions : the longest diameter might not pass through root, this approach only checks if the longest one passes through root or not.
+ 
