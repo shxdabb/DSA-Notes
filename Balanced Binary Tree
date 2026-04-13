@@ -1,0 +1,6 @@
+    # initial idea is to calculate left dfs and right dfs 
+    # i think i have to create a dfs function separately
+    # this approach is working fine but few test cases are failing and i came to know you have to check if the tree is balanced or not at every level, 
+    #every level you need to know the difference between height of subtree shouldnt exceed 1
+
+    
