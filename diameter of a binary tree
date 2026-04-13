@@ -45,7 +45,7 @@ class Solution(object):
 
 
 
-        #write a dfs on root.left and again root.right and increase counter by 1 every level but problem is how to keep track of level
+         # my old thoughts --> write a dfs on root.left and again root.right and increase counter by 1 every level but problem is how to keep track of level
 
         
         #but i have to start from left comeback to root then again go to right 
