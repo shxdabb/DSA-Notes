@@ -3,4 +3,47 @@
     # this approach is working fine but few test cases are failing and i came to know you have to check if the tree is balanced or not at every level, 
     #every level you need to know the difference between height of subtree shouldnt exceed 1
 
+#this approach only checks at root level by comparing left and right height
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def isBalanced(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: bool
+        """
+        def dfs(curr): 
+
+            if not curr:
+                return 0
+            depth = 1 + max(self.dfs(curr.left),self.dfs(curr.right))
+            return depth    
+        
+        if not root:
+            return True
+        
+        left = self.dfs(root.left)
+        right = self.dfs(root.right)
+
+        if abs(self.isBalanced(root.left)-self.isBalanced(root.right)) >= 2:
+            return False
+
+        return True
     
+    # initial idea is to calculate left dfs and right dfs 
+    # i think i have to create a dfs function separately
+    def dfs(self,curr): 
+
+        if not curr:
+            return 0
+        depth = 1 + max(self.dfs(curr.left),self.dfs(curr.right))
+        return depth
+        
+
+
+        
