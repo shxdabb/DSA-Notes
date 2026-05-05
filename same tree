@@ -15,3 +15,29 @@ class Solution:
 so this function can be used recursively and we can navigate to same directions by p.left, q.left so both pointers can be compared at 
 once and the base case will be if p and q not exist then True and if they both exist check values and return False if not same
 else dont do anything also if either one of them not exist return False immediately
+
+
+solution : 
+
+
+```python
+
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if not p and not q:
+            return True
+        if not p or not q or p.val != q.val:
+            return False
+        return self.isSameTree(p.left,q.left) and self.isSameTree(p.right,q.right)
+            
+solved did dry run.. understood one key aspect --> the last return is where all the thinking needs to be done that function will go all left then check if nodes are 
+or not basically all our comparison will happen there....then if everyting is true then threough out the recursive call stack it will be true but whenever something goes 
+wrong in our comparison the prgram will compare FALSE and T/F then at end False will be returned finally
+
+    1 -->p             
+   / \
+  2   3    
+
+    1 -->q
+   / \
+  2   3
