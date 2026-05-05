@@ -4,3 +4,14 @@ Ill doc it tomorrow
 solving it again after 15 days fooled around doing shitty things in here
 
 
+
+the function is somthing like this
+
+```python
+
+class Solution:
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool: 
+
+so this function can be used recursively and we can navigate to same directions by p.left, q.left so both pointers can be compared at 
+once and the base case will be if p and q not exist then True and if they both exist check values and return False if not same
+else dont do anything also if either one of them not exist return False immediately
