@@ -27,6 +27,13 @@ this is the main program :
         if not p or not q or p.val != q.val:
             return False
         return self.helper_sameTree(p.left,q.left) and self.helper_sameTree(p.right,q.right)
+
+
+
+#change the return line to this and the problem is solved :
+
+
+return (self.isSubtree(root.left, subRoot)) or (self.isSubtree(root.right, subRoot)) --> #need to figure out why it works.
             
 
 
