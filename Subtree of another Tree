@@ -1,4 +1,36 @@
-# the basid approach of me was when i find root == subroot, i use a helper function 
+# the basic approach of me was when i find root == subroot, i use a helper function 
 
 
 ill solve it again tomo
+
+
+
+i did solve it but it is failing test cases my approach was use helper function to compare tree at every level, but it is failing or having any error 
+this is the main program :
+
+```python
+        if not root:
+            return False
+        if not subRoot:
+            return True
+        
+        
+        if self.helper_sameTree(root,subRoot):
+            return True
+        self.isSubtree(root.left,subRoot) 
+        self.isSubtree(root.right,subRoot)
+        return False   
+
+    def helper_sameTree(self,p,q):
+        if not p and not q:
+            return True
+        if not p or not q or p.val != q.val:
+            return False
+        return self.helper_sameTree(p.left,q.left) and self.helper_sameTree(p.right,q.right)
+            
+
+
+
+
+
+
