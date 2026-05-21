@@ -7,7 +7,7 @@
 # and look from right
 
 #append last then start appending childrens into queue
-
+ 
 ```python
 
 # Definition for a binary tree node.
