@@ -44,4 +44,59 @@ class Solution(object):
         return 1 + max(self.maxDepth(Node.left),self.maxDepth(Node.right))
 
 
+
+
+
+
+
+
+#------------BFS---------------
+
+```python
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def maxDepth(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: int
+        """
+
+
+
+
+        from collections import deque
+
+        if not root:
+            return 0
+
+        q = deque()
+        q.append(root)
+        counter = 0
+
+        while q:
+            size = len(q)
+
+            for i in range(size):
+                node = q.popleft()
+                if node.left:
+
+                    q.append(node.left)
+                if node.right:
+                    
+                    q.append(node.right)
+            counter += 1
         
+
+        return counter
+
+        # node = root
+        # if not node:
+        #     return 0
+        # return 1 + max(self.maxDepth(node.left),self.maxDepth(node.right))
+
