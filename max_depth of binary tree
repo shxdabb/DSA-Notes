@@ -14,6 +14,11 @@ in this dfs approach when two nodea appear at same level depth is getting increa
 #after solution --> this can be solved by dfs recursive and iterative and bfs 3 ways to solve it...
 
 
+
+#After revise think of the recursion like 1 + 1 + 1 + [md(node.left),(node.right)] and those ones are the result of every level getting called and program will take max of left and right at every level till the end
+#if at last level max(0,0) then 0 goes up then (0,1) then 1 goes up like his every level is calculated for both left and right and if at the top of call stack at end basically it like max(3,4) so 4 gets selected thus
+#  program return depth only for one side
+
 ```python
 
 # Definition for a binary tree node.
