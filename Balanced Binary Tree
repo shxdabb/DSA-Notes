@@ -16,7 +16,7 @@ class Solution(object):
         
         return dfs(root)[0]
 
-#we will be returning [T,height] at every point and if at some point both left and right have a difference 0 or 1 the progtam will be returning True but at somepoint
+#we will be returning [T,height] at every point and if at some point both left and right have a difference 0 or 1 the program will be returning True but at somepoint
 #the difference exceeds 1 it will fail the abs condition and balanced will become false, it may be left balanced false or right balanced false
 #and at the end balanced will become False at root condition since balance = 'condition' and 'condition' and 'condition'.
 
