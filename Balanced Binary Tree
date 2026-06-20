@@ -73,6 +73,6 @@ class Solution(object):
         depth = 1 + max(self.dfs(curr.left),self.dfs(curr.right))
         return depth
         
-
+  
 
         
