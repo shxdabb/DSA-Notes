@@ -3,7 +3,7 @@
 class Solution(object):
     def isBalanced(self, root):
         """
-        :type root: Optional[TreeNode]
+        :type root: Optional[TreeNode] 
         :rtype: bool
         """
         def dfs(root):
