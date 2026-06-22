@@ -4,7 +4,7 @@ class Solution(object):
     def isBalanced(self, root):
         """
         :type root: Optional[TreeNode] 
-        :rtype: bool
+        :rtype: bool 
         """
         def dfs(root):
             if not root:
