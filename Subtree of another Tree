@@ -34,9 +34,17 @@ this is the main program :
 
 
 return (self.isSubtree(root.left, subRoot)) or (self.isSubtree(root.right, subRoot)) --> #need to figure out why it works.
-            
 
 
+return (self.isSubtree(root.left, subRoot)) or (self.isSubtree(root.right, subRoot)) --> this line works 
+
+        self.isSubtree(root.left,subRoot) 
+        self.isSubtree(root.right,subRoot)  --> this does not 
+        return False   
+
+
+REASON --> Because in the downside i am calling the function but doing nothing with the result meanwhile in the working line both function are recursively called and 
+even if result is found True means same tree is found at any side then or condition doesnt checks other side so it saves time.
 
 
 
