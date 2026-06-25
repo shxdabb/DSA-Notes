@@ -1,0 +1,61 @@
+# key idea is to maintain the path from which every node is visited, for which i used a array and when i returned i popped that element from the array,
+also keep track of the max_val in the path, and is suppose i fall back from left side to right side so i pop.right from the array so those elements are popped from the path 
+and new elements are added into the path while digging down and also keep track of max
+
+issue 1 --> #right now in my approach i am using a for loop to keep track of max_val and travsersing the whole array, so i need to optimise it.
+
+
+# i added array.pop at return statement so when i re trace from bottom most to 1 level up the bottom most value must be popped
+
+#notes in notebook:
+1) if i maintain the values in path and compare the curr.val with max_val in path array then i can do it.
+2) how to maintain a ds that can store or pop values queue? array?
+3)
+
+
+
+```python
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def goodNodes(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        
+        path = []
+        max_val = 0
+        path.append(root.val)
+        res = 0
+
+        def dfs(curr):
+            nonlocal max_val,res
+            if not curr:
+                return 
+            path.append(curr.val)
+
+            max_val = path[0]
+            for i in path:
+
+                if i >= max_val:
+                    max_val = i
+
+            if curr.val >= max_val:
+                max_val = curr.val
+                res+=1
+                   
+        #max value is not getting changed after popped
+            dfs(curr.left)
+            dfs(curr.right)
+
+            return path.pop()
+        
+        dfs(root)
+        return res
