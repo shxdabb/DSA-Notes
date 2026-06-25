@@ -8,7 +8,7 @@ issue 1 --> #right now in my approach i am using a for loop to keep track of max
 # i added array.pop at return statement so when i re trace from bottom most to 1 level up the bottom most value must be popped
 
 #notes in notebook:
-1) if i maintain the values in path and compare the curr.val with max_val in path array then i can do it.
+1) if i maintain the values in path and compare the curr.val with max_val in path array then i can do it. 
 2) how to maintain a ds that can store or pop values queue? array?
 3) flaws : Queue me max_val ko kaise track kare
 4) flaws : ki function return ke sath node.val ko kaise pop kare \
