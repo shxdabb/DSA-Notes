@@ -5,4 +5,6 @@
 
 #saw hint and discussion and got to know that use properties of bst and inorder traversal.
 
-#wathced solution
+#watched solution: they uses a iterative approach to visit everynode
+
+basic idea whether iteratively or recursively use inorder traversal u will automatically reach kth node just keep a check on how many nodes u visit.
