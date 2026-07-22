@@ -9,7 +9,7 @@ problem 1: -> how will upper bound and lower bound should be maintained
 
 problem 2 :-> how will function fetch both bounds
  
-problem 3 : -> in lb or ub should we keep root or not or both bounds change at every level.
+problem 3 : -> in lb or ub should we keep root or not or both bounds change at every level. 
 # also at every level new bounds must be set.
 
 
