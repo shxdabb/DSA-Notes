@@ -40,4 +40,29 @@ class Solution(object):
             if n==k:
                 return curr.val
             curr = curr.right
-        
+
+
+
+
+#RECURSIVE METHOD :
+        #basically need to track the number of times the inorder traversal 
+        #is getting called and when increment it by k and when n==k return 
+        #node.val
+
+        #problem 1-> how to keep track of n does it change or reset to 0 
+        #for every func call ->it is solved as we declare n out of function
+
+        #problem 2-> how do we know the function is getting called so we
+        #increment the n by 1-> it is solved we can fit it in pre or inorder
+
+        #how to return the result
+
+
+SOLN: USE A OBJ TO STORE THE RESULT OF A RECURSIVE CALL INORDER IN THIS CASE, AND ONLY RETURN SOMETHING WHEN CONDITION MATCHES OTHERWISE RETURN NONE
+
+"Do inorder traversal. At each node, first ask the left subtree if it already found the answer (via its return value). If yes, just pass that value up untouched. If no (None), do your own check — increment counter, see if this node is the answer. If yes, return your own value. If no, ask the right subtree the same question and pass along whatever it says."
+
+The key word you might add to your note is "relay" — every level either relays a found answer upward unchanged, or reports None if nothing's found yet. That's the general shape: find-or-relay-or-null.
+
+
+
