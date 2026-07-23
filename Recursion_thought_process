@@ -1,0 +1,34 @@
+That's a solid summary of the mechanics. Here's a way to reframe it mentally so it clicks as a general pattern, not just something specific to this problem.
+
+**Think of it as a relay race, not a search.**
+
+In a normal loop, you're used to "keep looking until you find it, then stop." Recursion doesn't have a shared "looking" state you can just `break` out of — each call is isolated, only knows about its own subtree, and can only talk to its direct parent through its return value. So the question every single call has to answer for itself is: *"Do I have the answer, or does someone below me have it, or does nobody have it yet?"* There are only ever three possible answers, and the return value has to encode which one it is:
+
+1. **"I found it myself"** → `return root.val` (or whatever the answer is)
+2. **"One of my children found it, I'm just passing it along"** → `return left_result` or `return right_result`
+3. **"Nobody in my subtree has found it (yet)"** → `return None`
+
+**The mental shift: stop thinking "when do I return the answer," start thinking "what does None mean, and what does not-None mean."**
+
+`None` isn't a failure or an edge case here — it's a deliberate signal that means "not found in this subtree." Every call's job is to check that signal from its child before deciding what to do next:
+
+- If child says `None` → that avenue was a dead end, continue on with your own logic (increment `n`, check yourself, try the other child).
+- If child says anything other than `None` → stop everything immediately, you don't need to do your own work anymore, just forward that value up unchanged.
+
+This is why the shape always looks like:
+```python
+result = dfs(child)
+if result is not None:
+    return result
+# otherwise, fall through and keep going
+```
+It's the same pattern every single time, at every level. You're never "returning the final answer" from any specific privileged spot — you're just each individual call honestly reporting upward what it knows, and trusting that the check-and-relay logic at each level will correctly bubble a real answer all the way to the top, or bubble `None` all the way up if it turns out `k` was invalid (more nodes requested than exist).
+
+**A good general trigger for recognizing this pattern:** any time you're doing a recursive search where the answer could be "buried" at an arbitrary depth, and you want the recursion to stop exploring once found, ask yourself: *"What do I return when I haven't found it, and how does the caller distinguish that from finding it?"* If you can answer that cleanly (here: `None` vs. a real value), the rest of the plumbing writes itself the same way every time.
+
+
+
+
+GOOD PROBLEMS TO PRACICE ARE DIAMETER OF A BT, KTH SMALLEST ELEMENT IN BST(RECURIVE METHOD)
+
+WHERE WE STORE THE RESULT OF RECURSIVE CALLS, THIS IS WHERE THE PROGRESS HAPPENS
