@@ -10,7 +10,7 @@
 basic idea whether iteratively or recursively use inorder traversal u will automatically reach kth node just keep a check on how many nodes u visit.
  
  
-   
+    
  ```python
  
 # Definition for a binary tree node. 
