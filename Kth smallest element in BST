@@ -12,7 +12,7 @@ basic idea whether iteratively or recursively use inorder traversal u will autom
  
     
  ```python
- 
+  
 # Definition for a binary tree node. 
 # class TreeNode(object): 
 #     def __init__(self, val=0, left=None, right=None): 
