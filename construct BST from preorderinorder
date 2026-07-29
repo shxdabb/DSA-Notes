@@ -13,7 +13,7 @@ class Solution(object):
         :rtype: Optional[TreeNode] 
         '''
 
-        if not inorder or not preorder:
+        if not inorder or not preorder: 
             return
         # preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
         root = TreeNode(preorder[0])
