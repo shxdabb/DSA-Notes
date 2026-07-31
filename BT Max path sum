@@ -9,4 +9,9 @@
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
         def dfs(root):
-            
+
+            if not root:
+                return None
+            left_sum = dfs(root.left)
+            right_sum = dfs(root.right)
+
