@@ -15,7 +15,7 @@ class Codec:
         :rtype: str
         """
         res = []
-        def dfs(root):   #res = "1,2,"
+        def dfs(root):   #res = "1,2," 
             if not root:
                 res.append("N")
                 return 
