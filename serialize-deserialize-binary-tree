@@ -12,7 +12,7 @@ class Codec:
         """Encodes a tree to a single string.
          
         :type root: TreeNode
-        :rtype: str
+        :rtype: str 
         """
         res = []
         def dfs(root):   #res = "1,2," 
