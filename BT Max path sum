@@ -1,20 +1,6 @@
-```python
-
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        def dfs(root):
-
-            if not root:
-                return None
-            left_sum = dfs(root.left)
-            right_sum = dfs(root.right)
-
+1-->#AT EVERY LEVEL WE NEED TO CHECK IF WE SPLIT WHATS THE MAX RESULT AND IF WE DONT SPLIT WHAT WILL BE THE MAX RESULT
+2-->#WHEN WE SPLIT THE REFERENCE TO UPPER NODE ARE GONE SO WE SPLIT TO FIND OUT MAXED OUT RESULT AND WHEN WE RETURN FROM A SPECIFIC NODE WE RETURN EITHER LEFT GREATER OR RIGHT GREATER
+3-->IF WE DONT SPLIT WE NEED TO RETURN CURRENT VALUE PLUS MAX OF EITHER LEFT_SUM OR RIGHT_SUM
  
  
  
