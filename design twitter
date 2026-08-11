@@ -1,0 +1,88 @@
+```python
+  import heapq
+class Twitter(object):
+
+    def __init__(self):
+        #here we want to declare few things
+        self.count = 0
+        self.tweetMap = defaultdict(list) #user_id ->[count,tweet_id]
+        self.followMap = defaultdict(set)
+
+    def postTweet(self, userId, tweetId):
+        """
+        :type userId: int
+        :type tweetId: int
+        :rtype: None
+        """
+        self.tweetMap[userId].append([self.count,tweetId])
+        self.count -=1
+
+        #tweetMap = {1:[[0,101],[-1,102],[-4,204]] ; 2:[[-2,109]}
+        #followMap = {1:{2,3};2:{1}}
+
+
+    def getNewsFeed(self, userId):
+        """
+        :type userId: int
+        :rtype: List[int]
+        """
+        #here we wanna retrieve the total tweet_ids
+        #so we take the user_id and search all the followers
+        #mapped to it then for every follower we take the tweets
+        #and put it into a res, then heapify it and return top 10 
+        #based on the count variable
+
+        self.followMap[userId].add(userId)
+        res = []
+        minHeap = []
+        for followeeId in self.followMap[userId]:
+            if followeeId in self.tweetMap:
+                index = len(self.tweetMap[followeeId])-1
+                count,tweetId = self.tweetMap[followeeId][index]
+                minHeap.append([count,tweetId,followeeId,index-1])
+
+        heapq.heapify(minHeap)
+
+        #for phase 1 we add most recent tweets per user, the in the while loop
+        #we we append the recent tweet in res then heappush the previous tweet
+        #using index and then it automatically heapifies using the count so we get '
+        #all the tweets linked to the required followeeId and also it is heapified
+        while minHeap and len(res)<10:
+            count,tweetId,followeeId,index = heapq.heappop(minHeap)
+            res.append(tweetId)
+
+            if index >=0:
+
+                count,tweetId = self.tweetMap[followeeId][index]
+                heapq.heappush(minHeap,[count,tweetId,followeeId,index-1])
+        return res
+
+    def follow(self, followerId, followeeId):
+        """
+        :type followerId: int
+        :type followeeId: int
+        :rtype: None
+        """
+        #for this we will be adding into our followmap whatever user_id
+        #we get will will be followee id and the one who gets followed will be 
+        #follower id
+
+        self.followMap[followerId].add(followeeId)
+
+    def unfollow(self, followerId, followeeId):
+        """
+        :type followerId: int
+        :type followeeId: int
+        :rtype: None
+        """
+        if followeeId in self.followMap[followerId]:
+            self.followMap[followerId].remove(followeeId)
+        
+
+
+# Your Twitter object will be instantiated and called as such:
+# obj = Twitter()
+# obj.postTweet(userId,tweetId)
+# param_2 = obj.getNewsFeed(userId)
+# obj.follow(followerId,followeeId)
+# obj.unfollow(followerId,followeeId)
