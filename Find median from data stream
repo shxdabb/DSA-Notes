@@ -1,0 +1,3 @@
+#my first approach was to heapify but it does not guarantee the array is sorted.
+
+#new approach is to maintain two min_heap, max_heap 
