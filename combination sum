@@ -1,0 +1,7 @@
+
+candidates = [2,3,6,7], target = 7
+
+#we can take first element check if thats equal to target base case will be if temp sum adds to target, if not will add more to it if it exceeds we can subtract from the temp
+sum, and add next one
+
+probelem 1 is how to know when to use the same element twice-> we can either use it or choose to go with next one
