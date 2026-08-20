@@ -16,7 +16,7 @@ issue 1 --> #right now in my approach i am using a for loop to keep track of max
 6) return statement me pop.right karo
 
 
-
+ 
 ```python
 # Definition for a binary tree node.
 # class TreeNode(object):
