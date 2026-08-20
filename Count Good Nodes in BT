@@ -14,7 +14,7 @@ issue 1 --> #right now in my approach i am using a for loop to keep track of max
 4) flaws : ki function return ke sath node.val ko kaise pop kare \
 5) new val add krne se phle current max ko track karo 
 6) return statement me pop.right karo
-
+ 
 
  
 ```python
