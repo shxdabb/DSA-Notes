@@ -5,3 +5,4 @@ candidates = [2,3,6,7], target = 7
 sum, and add next one
 
 probelem 1 is how to know when to use the same element twice-> we can either use it or choose to go with next one
+ 
