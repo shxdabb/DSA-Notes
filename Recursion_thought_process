@@ -18,7 +18,7 @@ In a normal loop, you're used to "keep looking until you find it, then stop." Re
 This is why the shape always looks like:
 ```python
 result = dfs(child)
-if result is not None:
+if result is not None: 
     return result
 # otherwise, fall through and keep going
 ```
