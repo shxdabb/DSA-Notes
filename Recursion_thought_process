@@ -32,3 +32,26 @@ It's the same pattern every single time, at every level. You're never "returning
 GOOD PROBLEMS TO PRACICE ARE DIAMETER OF A BT, KTH SMALLEST ELEMENT IN BST(RECURIVE METHOD)
 
 WHERE WE STORE THE RESULT OF RECURSIVE CALLS, THIS IS WHERE THE PROGRESS HAPPENS
+
+
+
+
+
+
+27 AUG : solved combination sum to hit a base case without writing extra lines of codes, include the objects inside the recursive function call itself so the base cases can be checked at every level
+
+
+```python
+
+def backtrack(i,curr,total): #current will tell what candidates are in it, 
+        #and total will tell what we have added until now
+
+            if total == target:
+                res.append(curr[:])
+                return
+            if i >= len(candidates) or total>target:
+                return
+
+
+
+#here the total, curr are passed and changed at every level so we pass the changed curr, and total while we recursively call backtrack so it can be checked at every level
