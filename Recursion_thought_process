@@ -8,7 +8,7 @@ In a normal loop, you're used to "keep looking until you find it, then stop." Re
 2. **"One of my children found it, I'm just passing it along"** → `return left_result` or `return right_result`
 3. **"Nobody in my subtree has found it (yet)"** → `return None`
 
-**The mental shift: stop thinking "when do I return the answer," start thinking "what does None mean, and what does not-None mean."**
+**The mental shift: stop thinking "when do I return the answer," start thinking "what does None mean, and what does not-None mean."** 
 
 `None` isn't a failure or an edge case here — it's a deliberate signal that means "not found in this subtree." Every call's job is to check that signal from its child before deciding what to do next:
 
