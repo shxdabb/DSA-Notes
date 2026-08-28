@@ -14,7 +14,7 @@ In a normal loop, you're used to "keep looking until you find it, then stop." Re
 
 - If child says `None` → that avenue was a dead end, continue on with your own logic (increment `n`, check yourself, try the other child).
 - If child says anything other than `None` → stop everything immediately, you don't need to do your own work anymore, just forward that value up unchanged.
-
+ 
 This is why the shape always looks like:
 ```python
 result = dfs(child)
