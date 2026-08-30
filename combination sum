@@ -7,3 +7,45 @@ sum, and add next one
 probelem 1 is how to know when to use the same element twice-> we can either use it or choose to go with next one
  
  
+```python
+class Solution(object):
+    def combinationSum(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        # combo_sum = 0
+        # combo,res = [],[]
+        res = []
+        #recursive backtrack -> using dfs
+
+        def backtrack(i,curr,total): #current will tell what candidates are in it, 
+        #and total will tell what we have added until now
+
+            if total == target:
+                res.append(curr[:])
+                return
+            if i >= len(candidates) or total>target:
+                return
+            
+            curr.append(candidates[i]) #we will append this element 
+            #we will call the function again with same index that 
+
+            backtrack(i,curr,total + candidates[i])
+            #the curr is updated so now we have new curr to look into
+
+            curr.pop()
+
+            backtrack(i+1,curr,total)
+
+
+        backtrack(0,[],0)
+
+
+            
+
+            
+
+
+        return res
