@@ -59,3 +59,6 @@ def backtrack(i,curr,total): #current will tell what candidates are in it,
 
 2 Sep : while solving anything recursiveley think of what subproblems can be solved along with it.
 
+#while u put recursive calls inside a loop, the loop stops there and resume only when the recursion calls return and comes back to that frame.
+
+
