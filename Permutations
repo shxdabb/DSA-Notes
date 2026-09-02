@@ -1,1 +1,63 @@
 thinked of a solution but in solution it was way different,invloving two loops with recursion
+
+
+# thought a solution in which we pop from array and put it in a queue then again pop it and append in queue until i have 1 element left or some kind of counter is matched
+#then we append from queue into the array so it makes a new combo and do it like len(nums)-1 times thus every combination cane be done here but was stucked because how can that be done recursively how to hit the base case and when to know to remove the last element, i think involving multiple loops and recursion might have solved it ill look for that solution after this
+
+
+
+#------------------Neetcode solution------------------#
+
+1. hit the base case, then climb back up and add what we have left that is 3, then again climb back up and add 2, where can it be added 2 at front the at back, then
+again climb up and add 1 at each position using a loop
+
+
+1,2,3 --> 2,3 --> 3 --> [] -->[3] --> [2,3],[3,2] --> [1,2,3] ,[2,1,3] ,[3,2,1]
+
+
+#code 
+
+```python
+
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        
+        if len(nums) == 0:
+            return [[]]
+
+        perms = self.permute(nums[1:])
+        res = []
+        for p in perms: #p in perms will be the array i.e [3] then [[2,3],[3,2]]
+            for i in range(len(p)+1):
+                p_copy = p.copy()
+                p_copy.insert(i,nums[0])
+                #append each nums[0] at every index len(p)+1 times here
+                #becuz nums[0] will be the element which has to be added at
+                #every index, like at first it will be 3 
+                #then it will be 2 from 2,3 so 2 will be added before 3 and after 3
+                #then at last level there will be 1 from 1,2,3 which will be added
+                # in two permutes those are 2,3 and 3,2
+
+                res.append(p_copy)
+        return res
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
