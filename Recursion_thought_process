@@ -53,5 +53,9 @@ def backtrack(i,curr,total): #current will tell what candidates are in it,
                 return
 
 
-
 #here the total, curr are passed and changed at every level so we pass the changed curr, and total while we recursively call backtrack so it can be checked at every level
+
+
+
+2 Sep : while solving anything recursiveley think of what subproblems can be solved along with it.
+
