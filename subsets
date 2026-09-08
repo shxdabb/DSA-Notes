@@ -1,2 +1,40 @@
 go to each level like each index then append the [i] and also append the list without i.
 how can i do it.
+
+
+
+1) at every element u can either choose to add it or not choose -> by doing this recursively u can explore all possible combinations of subsets
+
+2) the base case is kept like that because when i >= len(nums) then only we will append to main list as at that point the desired subset will be achieved becasue we 
+choose and not choose every level so there will be s stage in recurive block where i == 3 and we have not choosed any element so final result will be [], also [1],[2]
+
+3) these lines: does the dfs tree part, what we choose in tree and decide to do with it then remove/change the current state and do the same thing can be achived by 
+this template.
+backtrack(i+1)
+do something in current state
+backtrack(i+1) 
+
+
+```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        #at every level we can either choose to add into 
+        #our result array or choose not to
+
+        res = []
+        subset = []
+        def dfs(i):
+            if i >= len(nums):
+                res.append(subset[:])
+                return
+            # res.append(subset[:])
+            subset.append(nums[i])
+            dfs(i+1)
+            subset.pop()
+            dfs(i+1)
+
+        dfs(0)
+        return res
+
+
+ 
