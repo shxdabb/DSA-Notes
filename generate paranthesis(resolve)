@@ -1,3 +1,23 @@
+We call backtrack functions and can start appending but only when it follows certain conditions
+
+we start by o,c set to 0 and we will increase them until o==c==n this will be the base case, earlier i thought to start from 0 and decrement till 0
+both will work i will solve in both
+
+conditions will be :
+if o>0 u can append o or if o <n u can append 0 (in first case u have to stop when o ==0)
+if c and c > o or if c < o (in second it means if opens are used and c is less so we can use c but never when c==o)
+
+dfs :
+in the if statement keep the first statement above as close paranthesi should never start over open and every call will be started from open
+then after the first condition write dfs(o+1,c)
+after it write stack.pop() because in the same recursive call it should pop and explore other options here we dont write it in end,
+
+in second when all open options are explored then we write dfs(o,c+1) then write pop so all closed options should be covered
+
+*doubt how is duplicates getting handled
+
+
+
 Maintain a current stack/string.
 Recursively add ( and ).
 Don't allow invalid parenthesis states.
