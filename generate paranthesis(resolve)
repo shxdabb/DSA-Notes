@@ -14,7 +14,19 @@ after it write stack.pop() because in the same recursive call it should pop and 
 
 in second when all open options are explored then we write dfs(o,c+1) then write pop so all closed options should be covered
 
-*doubt how is duplicates getting handled
+*doubt how is duplicates getting handled :
+solved 
+ok i get it after stack.pop no dfs is getting called so in this case not a perftct binary tree is drawn after dfs(2,2)
+is reached we got to 2nd cond stack.pop then again 2nd condition stack.pop becuase from there only dfs was called then 
+again 1st condition stack.pop then if c<o option is explored and we now check () this one, and stack is kept universal as after all options are explored it 
+is popping so new options can be explored we dont need to pass stack in every call here
+
+call stack for n = 2:
+d(0,0) -> d(1,0) ->d(2,0) ->d(2,1) ->d(2,2) (base case hit return) ->d(1,1) ->d(2,1) ->d(2,2) 
+                                                    |
+                                            when the base case it hit program goes to 2nd conditions stack.pop so 2,1 then again it hits stack.pop 2,0
+                                            then it return as program over then it reaches 1st cond dfs call completed then pop (1,0)    
+                                            then if c<o is explored
 
 
 
