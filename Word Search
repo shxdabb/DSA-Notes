@@ -1,0 +1,11 @@
+board = [
+  ["A","B","C","D"],
+  ["S","A","A","T"],
+  ["A","C","A","E"]
+]
+suppose this is the grid we have, we have to run word search from every letter/every position 
+#we can search for the word by recursive backtracking for every letter we move top.down.right.left ([-1,0],[1,0],[0,-1],[0,1])
+#we run a loop to explore a valid cell, and if the letter matches the position of the letter in the word, we call the backtrack function again
+#we dont explore invalid cell
+#we maintain a visited set for every letter explored in a path, so that the dfs doesnt visit the cell again as in a path we can only select one cell 
+#
