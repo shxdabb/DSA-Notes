@@ -1,0 +1,53 @@
+board = [
+  ["A","B","C","D"],
+  ["S","A","A","T"],
+  ["A","C","A","E"]
+]
+suppose this is the grid we have, we have to run word search from every letter/every position 
+#we can search for the word by recursive backtracking for every letter we move top.down.right.left ([-1,0],[1,0],[0,-1],[0,1])
+#we run a loop to explore a valid cell, and if the letter matches the position of the letter in the word, we call the backtrack function again
+#we dont explore invalid cell
+#we maintain a visited set for every letter explored in a path, so that the dfs doesnt visit the cell again as in a path we can only select one cell 
+
+#code basics:
+we maintain a backtrack function and pass (i,j,k) where i,j is row,col and k is the correspondent letter to the word which increases for every correct letter found
+
+backtrack(i,j,k)
+
+if k == len(word)-1:
+    return True
+this will be the base case as the k will only be incremented if the correct letter is found 
+
+#few doubts :
+ the position of visited, visited(i,j) is not visited(nr,nc) how? and how does true climbs the call stack, why return False is written outside 
+
+#need to do a dry run
+```python
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+    
+        visited = set()
+        directions = ([-1,0],[1,0],[0,-1],[0,1])
+        def backtrack(i,j,k):
+            if k == len(word)-1:
+                return True
+
+            visited.add((i,j))
+            for dr,dc in directions:
+                nr = dr + i
+                nc = dc + j
+
+                if (0<=nr<len(board) and 0<=nc<len(board[0])
+                and (nr,nc) not in visited and board[nr][nc] == word[k+1]):
+                    if backtrack(nr,nc,k+1):
+                        return True
+                    
+            visited.remove((i,j))
+            return False
+
+        for i in range(len(board)):
+            for j in range(len(board[i])):
+                if board[i][j] == word[0]:
+                    if backtrack(i,j,0):
+                        return True
+        return False   
