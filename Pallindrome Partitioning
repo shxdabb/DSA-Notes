@@ -1,1 +1,5 @@
-
+#its simple really
+#earlier i was mistaking, i was thinking of the same template which and approach
+as it was in subsets or combination sum, here the decision was changed, the choices
+i have here is either we partition if it is a pallindrome and explore the other part
+or we add it into our current path then partition from there and explore if it is pallin
