@@ -3,3 +3,16 @@
 as it was in subsets or combination sum, here the decision was changed, the choices
 i have here is either we partition if it is a pallindrome and explore the other part
 or we add it into our current path then partition from there and explore if it is pallin
+
+#we run a loop from start,len(s) where start at every dfs call changes as we pass start(i+1) when we find a valid pallindrome and we partition from there 
+and send next indices to explore
+
+#suppose call dfs(0) at loop runs from a to b: first a is selected then we check if it is a valid pallindrome, it is so we append "a" in part and call dfs(start+1)
+now loop will run from 2nd a to be then 2nd a is selected and checked if it is a pallind it is so we append it in part then call dfs(2) so loop rund from b to b
+b is also a valid so part becomes ["a","a","b"] then base case is hit we return and pop b then move to dfs(1) then pop then part becomes ["a"] and loop is still left
+so now it explores ab which is not so we return and part becomes [] then dfs(0) loop runs and start is at 1 so piece piece[start:end+1] becomes 
+(start = 0 as dfs(0) end at 1 ) == aa: now aa is explored it is a valid so we append aa part becomes ["aa"] and we call end + 1 so dfs(2) --- notice here we are 
+calling next of what we have explored until now
+so b is chosen appeneded and dfs(end+1) is called which is 3 so we hit base case return pop b then pop aa as loop is over then eneter dfs(0) then 
+end is at 2 so piece becomes [0:3] that is aab it is explored and it is fucked so am i
+
