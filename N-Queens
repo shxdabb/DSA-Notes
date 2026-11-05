@@ -1,1 +1,11 @@
+#My first thinking was if a queen is placed at an edge, we cant place another queen in the direction of horizontal,vertical and diagonal from there
+so i thought of marking those cells in a set and dont visit those-> but problem here is if i decide to not visit that how can i fucking move, i cant 
+so ai helped a little, i was thinking of brute forcing every cell and marking it danger, but while brainstorming with ai i cam to know that we can traverse diagonally 
+from there it can be easier to find safe cells, thus reducing the traversal horizontally and vertically.
+
+problem 1-> How to move along diagonal, and from there start visiting all cells around it
+2 - > if i start visiting cells from there and i get safe cell how to start this recursivev call again -> to move diagonally from there and mark all unsafe cells along it
+
+#backtracking comes into play when we place a queen and we have to remove it from there like i placed in 0,0 then i can only play 3 queens in the whole board where n = 4
+but if i play differently i get two solutions where 4 queens can be placed, and i have to return all solutions where n queens can be placed
 
