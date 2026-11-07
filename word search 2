@@ -1,0 +1,53 @@
+```python
+
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.isEnd = False
+
+
+class Solution:
+    def findWords(self, board, words):
+        root = TrieNode()
+
+        for word in words:
+            curr = root
+            for c in word:
+                if c not in curr.children:
+                    curr.children[c] = TrieNode()
+                curr = curr.children[c]
+            curr.isEnd = True
+
+        rows, cols = len(board), len(board[0])
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        result = []
+
+        def dfs(i, j, node, path):
+            char = board[i][j]
+
+            if char not in node.children:
+                return
+
+            node = node.children[char]
+            path += char
+
+            if node.isEnd:
+                result.append(path)
+                node.isEnd = False
+
+            board[i][j] = "#"
+
+            for dr, dc in directions:
+                nr, nc = i + dr, j + dc
+
+                if 0 <= nr < rows and 0 <= nc < cols:
+                    if board[nr][nc] != "#":
+                        dfs(nr, nc, node, path)
+
+            board[i][j] = char
+
+        for i in range(rows):
+            for j in range(cols):
+                dfs(i, j, root, "")
+
+        return result
