@@ -1,3 +1,24 @@
+#now i have up too soon on this problem as it was taking too much time to solve this, and watched the code even studied the code and now i am about to resolve it
+but learnt my mistakes so now going to make a fuxss about it this could have been a hard problem that i could've solved on my own
+
+#it is a revision of word search 1 but yot minimize the tc we use a trie based approach here, what we were doing earlier was going every sqaure start a dfs on 
+all 4 directions from there take a index and compare it with the given word we had and stop when the board[i][j] doesnt match word[k], here few things are revised
+we store all the given words in a trie so at once while we traverse the grid we can check in the trie, now it also solves the multiple word issue
+thats how : suppose trie has p<-a<-c->a->r , we found c in grid, now we go left in grid we find a then we go down and right and top find bullshit that doesnt 
+matches our words we have in our trie but we go left from there we find p thats cap we have in our trie, if it has isEnd = True we save it, then try to find some more
+letters from thats a, if we dont we end up returning to c and can start a search for car from there thus handling multiple word searches , if we had something like
+card and cart and cawp, and we were at c->a then if we find r or w we were still safe thus avoiding re seacrh again and again, and if c->a->r we could find
+d and t in two of four searches from there thus avoiding again finding c then a then r then 't' or 'd'.
+
+#to solve it we have to add all words in the words array in a trie first, then start a dfs run from there, and have too explore all 4 directions,
+but searching will be done in trie, so we have to keep track of the node where we are at,suppose the starting letter a is in the root and in the grid as well
+all the words starring from a will 100 percent be in the children of a:{} then we can move the our current node to the children of a becuase any word like aab or aba
+will be in the children of a:{} so if we find a matching word we move the node to its children, also we have to keep track of current path because while traversing grid
+if we find matching word and it also has isEnd True we can append in a resultant array whic will be array of strings
+
+
+
+
 ```python
 
 class TrieNode:
