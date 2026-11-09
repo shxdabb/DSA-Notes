@@ -9,3 +9,11 @@ problem 1-> How to move along diagonal, and from there start visiting all cells 
 #backtracking comes into play when we place a queen and we have to remove it from there like i placed in 0,0 then i can only play 3 queens in the whole board where n = 4
 but if i play differently i get two solutions where 4 queens can be placed, and i have to return all solutions where n queens can be placed
 
+#so watched the solution a bit and realized : i just need to playy on n columns and mark the columns the positive diagonal and negative diagonal as visited so cant keep
+the next queen in that cell 
+every dfs call will carry these sets : col,neg_dia,pos_dia,n and we need to avoid putting the queen in these cells
+
+problem 1 is : how to fill in these neg_dia pos_dia sets "should i manually write everytime is use a cell?" or should i use a for loop to fill in these sets
+prob 2 is : how to pop from these neg_dia, pos_dia sets
+prob 3 : how to store the result it should look like [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]] 
+
