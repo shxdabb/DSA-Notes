@@ -17,3 +17,8 @@ problem 1 is : how to fill in these neg_dia pos_dia sets "should i manually writ
 prob 2 is : how to pop from these neg_dia, pos_dia sets
 prob 3 : how to store the result it should look like [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]] 
 
+figured a new approach in which i just have to place the marked cell in visited set and for every new i,j cell we just have to check
+for a,b in visited:
+                if i==a or j == b or i+j == a+b or i-j == a-b: these conditions
+
+i am getting stuck here somehow: 
