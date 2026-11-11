@@ -22,3 +22,13 @@ for a,b in visited:
                 if i==a or j == b or i+j == a+b or i-j == a-b: these conditions
 
 i am getting stuck here somehow: 
+
+
+
+man i completely did a wrong fking thing I someehow copy pasted the graph traversal algo with little pruning, the queen 
+doesnt move like this i go in four directions then comeback and check if it was safe cell, thats not the right approach
+bcuz that way i can call dfs on 0,0 then explore all possible combo which wont result in any as i can move only to the wrong 
+cells from there, so the basic idea should be placing 1 queen per row
+
+base case should be if row > n: append the current board and in every dfs call i should call dfs(row+1)
+and place the right queen in every row with some pruning
