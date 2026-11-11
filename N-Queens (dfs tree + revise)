@@ -79,3 +79,55 @@ class Solution:
         
 
         return board
+
+
+
+
+#now lets come to the og code i watched after solution here it is not cell based approach rather row based approach
+
+#i got to this part but writing the code on its own gives a lot of room for improvement
+
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> list[list[str]]:
+        
+        board = [["."]*n for i in range(n)]
+        res = []
+        col = set()
+        neg_dia = set()
+        pos_dia = set()
+
+        def dfs(r):
+
+            if r == n:
+                #append the board and return
+                copy = ["".join(row) for row in board]
+                res.append(copy)
+                return
+
+            for c in range(n):
+                if c in col or (r-c) in neg_dia or (r+c) in pos_dia:
+                    continue #we dont have to do anything just continue
+                             #with the loop
+                #if not then we can use this to place a queen
+
+                board[r][c] = "Q"
+                col.add(c)
+                neg_dia.add(r-c)
+                pos_dia.add(r+c)
+
+                dfs(r+1)
+
+                #when all options for we come back to first loop
+                #of first r call then place at same r different columns 
+                #where all queens were 4 for ex for 2nd queen we will place
+                #at r=0,c=1 here we will get our first valid solution 
+                #so board will be updated here 
+
+                col.remove(c)
+                neg_dia.remove(r-c)
+                pos_dia.remove(r+c)
+                board[r][c] = "."
+
+        dfs(0)
+        return res
