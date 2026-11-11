@@ -32,3 +32,50 @@ cells from there, so the basic idea should be placing 1 queen per row
 
 base case should be if row > n: append the current board and in every dfs call i should call dfs(row+1)
 and place the right queen in every row with some pruning
+
+
+this was the shithead i wrote but after watching solution i came to know this is not a shitty code
+this was very close almost i hope so :)))
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> list[list[str]]:
+        
+        board = []
+        visited = set()
+        directions = [(0,1),(0,-1),(1,0),(-1,0)]
+        res = []
+        def dfs(i,j,k): #n is queens 
+            if k == 0:
+                board.append(''.join(res))
+
+            for a,b in visited:
+                if i==a or j == b or i+j == a+b or i-j == a-b:
+                    return
+            # how to write the result
+            
+            for ax in range(n):
+                if ax == i:
+                    res.append('Q')
+                else:
+                    res.append('.')
+            board.append(''.join(res))
+            
+            #here i can place the queen safely
+            visited.add((i,j))
+            # res = []
+
+            for dr,dc in directions:
+                nr = i + dr
+                nc = j + dc
+                if 0<=nr<n and 0<=nc<n:
+                    dfs(nr,nc,k-1)
+
+            visited.remove((i,j))
+
+
+        for i in range(n):
+            for j in range(n):
+                dfs(i,j,n)
+        
+
+        return board
